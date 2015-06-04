@@ -11,7 +11,8 @@
  V1.1 update 12 May, 2015 to support wechat(weline)
  V1.2 update 13 May 2015 to support Temboo with twitter to read a tweet trigger by IFTTT when we push a DO button. 
  V1.3 update 14 May 2015 to support ThingSpeak's App "Tweet Control" to read a tweet trigger by IFTTT when we push a DO button. 
-
+ V.14 update 3 June 2015 to support 443 MHz RF module
+ 
  Designer: Fawei Zhang
    
  */
@@ -20,7 +21,18 @@
 #include <Process.h>
 #include <Bridge.h>
 #include <Temboo.h>
+#include <RCSwitch.h>
 #include "password.h" // Contains Yeelink/Weline/Temboo/Thingspeak account info
+
+// Define the 433 MHz RF Remote conttoller demical code
+#define CH1_ON  4478259
+#define CH1_OFF 4478268
+#define CH2_ON  4478403
+#define CH2_OFF 4478412
+#define CH3_ON  4478723
+#define CH3_OFF 4478732
+
+RCSwitch mySwitch = RCSwitch();
 
 // set up net client info:
 const unsigned long postingInterval = 1000;  //delay between updates to emoncms.com
@@ -39,6 +51,12 @@ void setup() {
   updateData();
   sendData_yeelink_weline_temboo();     // get data from yeelink (ios,android,web, wechat,temboo/IFTTT)
   lastRequest = millis();
+  
+// 433 MHz RF module:
+  // Transmitter is connected to Arduino Pin #7  
+  mySwitch.enableTransmit(7);
+  // Optional set pulse length.
+  mySwitch.setPulseLength(176);
 }
 
 void loop() {
@@ -77,7 +95,7 @@ void sendData_yeelink_weline_temboo()
   yeelink_url += "/datapoints";
   // Send the HTTP GET request
 
-  // Is better to declare the Process here, so when the
+  // It's better to declare the Process here, so when the
   // sendData function finishes the resources are immediately
   // released. Declaring it global works too, BTW.
   Process yeelink;
@@ -93,9 +111,6 @@ void sendData_yeelink_weline_temboo()
   yeelink.run();
   Serial.println("Done! Yeelink");
   Serial.println(yeelink_url);
-  
-//  int i = yeelink.available();
-//  Serial.print(i);
 
 /******************************* Get data from weline (wechat) ********************************/ 
    // form the string for the API header parameter:
@@ -124,9 +139,6 @@ void sendData_yeelink_weline_temboo()
   weline.run();
   Serial.println("Done! WeChat");
   Serial.println(weline_url);
-  
- // int j = weline.available();
- // Serial.print(j);
  
  /******************************* Get data from Temboo(Twitter) and IFTTT ********************************/ 
  /* 
@@ -300,6 +312,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,LOW); 
        Serial.print(" LED OFF");
+       mySwitch.send(CH1_OFF, 24);
    }
   if(y == '0'&& w == '1')
    {
@@ -308,6 +321,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    if(y == '1'&& w == '0')
    {  
@@ -316,6 +330,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    
    // The controller can't be control the light from both of 2 platform.....
@@ -328,6 +343,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,LOW); 
        Serial.print(" LED OFF");
+       mySwitch.send(CH1_OFF, 24);
    }
  */  
 /********************** Determine the status of the data (yeelink,wechat,(Temboo or Thingspeak),twitter,ifttt) **********************/
@@ -339,6 +355,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,LOW); 
        Serial.print(" LED OFF");
+       mySwitch.send(CH1_OFF, 24);
    }
   if(y == '0'&& w == '0' && t =='1')
    {
@@ -347,6 +364,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    if(y == '0'&& w == '1' && t =='0')
    {  
@@ -355,6 +373,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    
    // The controller can't be control the light from both of 2 platform.....
@@ -367,6 +386,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    if(y == '1'&& w == '0' && t =='0')
    {
@@ -375,6 +395,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    if(y == '1'&& w == '0' && t =='1')
    {
@@ -383,6 +404,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    if(y == '1'&& w == '1' && t =='0')
    {
@@ -391,6 +413,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,HIGH); 
        Serial.print(" LED ON");
+       mySwitch.send(CH1_ON, 24);
    }
    if(y == '1'&& w == '1' && t =='1')
    {
@@ -399,6 +422,7 @@ void sendData_yeelink_weline_temboo()
        Serial.println();
        digitalWrite(13,LOW); 
        Serial.print(" LED OFF");
+       mySwitch.send(CH1_OFF, 24);
    }
 
 
