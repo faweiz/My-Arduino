@@ -6,7 +6,7 @@
 *    https://portfolium.com/faweiz
 *    https://www.linkedin.com/in/faweiz
 *
-*    Project Tutital : https://www.hackster.io/faweiz/arduino_yun_light
+*    Project Tutital : https://www.hackster.io/faweiz/arduino-smart-car
 *
 *
 *    1.Avoidance: Use Ultrasonic sensor/ Sharp GP2Y0A02YK0F IR Range Sensor to avidance object.
