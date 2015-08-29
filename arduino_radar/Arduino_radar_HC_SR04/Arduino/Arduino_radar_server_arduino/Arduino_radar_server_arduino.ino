@@ -1,5 +1,9 @@
 /*
-www.Faweiz.com/radar
+ // https://github.com/faweiz
+ // https://portfolium.com/faweiz
+ // https://www.linkedin.com/in/faweiz
+ // Project Tutital : https://www.hackster.io/faweiz/arduino-radar
+ 
 Radar Screen Visualisation for HC-SR04
 Sends sensor readings for every degree moved by the servo
 values sent to serial port to be picked up by Processing
