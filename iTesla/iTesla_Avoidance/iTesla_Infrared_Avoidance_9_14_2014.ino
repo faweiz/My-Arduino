@@ -2,9 +2,12 @@
 *    which use DFrobot Cherokey 4WD as platform: http://www.dfrobot.com/wiki/index.php/Cherokey_4WD_Mobile_Platform_(SKU:ROB0102)
 *    More information available:
 *
-*    http://www.faweiz.com/car
-*    http://www.faweiz.com/小车
-*    http://www.faweiz.com/itesla
+*    https://github.com/faweiz
+*    https://portfolium.com/faweiz
+*    https://www.linkedin.com/in/faweiz
+*
+*    Project Tutital : https://www.hackster.io/faweiz/arduino_yun_light
+*
 *
 *    1.Avoidance: Use Ultrasonic sensor/ Sharp GP2Y0A02YK0F IR Range Sensor to avidance object.
 *
