@@ -1,7 +1,7 @@
 arduino_radar
 =============
 Arduino Code:
-https://github.com/faweiz/arduino_radar/blob/master/Arduino_radar_HC_SR04/Arduino/Arduino_radar_server_arduino/Arduino_radar_server_arduino.ino
+https://github.com/faweiz/My-Arduino/blob/master/arduino_radar/Arduino_radar_HC_SR04/Arduino/Arduino_radar_server_arduino/Arduino_radar_server_arduino.ino
 
 /*
 https://www.hackster.io/faweiz/arduino-radar
@@ -12,7 +12,7 @@ values sent to serial port to be picked up by Processing
 
 
 Processing Code: 
-https://github.com/faweiz/arduino_radar/blob/master/Arduino_radar_HC_SR04/Processing-code/Arduino_radar_client_processing/Arduino_radar_client_processing.pde
+https://github.com/faweiz/My-Arduino/blob/master/arduino_radar/Arduino_radar_HC_SR04/Processing-code/Arduino_radar_client_processing/Arduino_radar_client_processing.pde
 
 /*
 https://www.hackster.io/faweiz/arduino-radar
