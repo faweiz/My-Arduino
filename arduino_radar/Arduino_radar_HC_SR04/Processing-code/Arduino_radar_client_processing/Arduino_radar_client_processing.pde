@@ -1,5 +1,9 @@
 /*
-www.Faweiz.com/radar
+ // https://github.com/faweiz
+ // https://portfolium.com/faweiz
+ // https://www.linkedin.com/in/faweiz
+ // Project Tutital : https://www.hackster.io/faweiz/arduino-radar
+ 
 Radar Screen Visualisation for Sharp HC-SR04
 Maps out an area of what the HC-SR04 sees from a top down view.
 Takes and displays 2 readings, one left to right and one right to left.
