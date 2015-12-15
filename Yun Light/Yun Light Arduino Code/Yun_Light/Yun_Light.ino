@@ -71,19 +71,19 @@ void loop() {
          yeelinkData(num);                  // Get data from Yeelink   
          break;
        case '2':
-         wechatData(num);                  // Get data from Yeelink
+         wechatData(num);                  // Get data from Wechat
          break;
        case '3':
-         TembooData(num);                  // Get data from Yeelink
+         TembooData(num);                  // Get data from Temboo
          break;
        case '4':  
-         ThinkSpeakData(num);                  // Get data from Yeelink
+         ThinkSpeakData(num);               // Get data from ThinkSpeak
          break;
        case '5':
-         BlynkData(num);                  // Get data from Yeelink
+         BlynkData(num);                   // Get data from Blynk
          break;
        case '6':
-         DeviceHubData(num);                  // Get data from Yeelink
+         DeviceHubData(num);               // Get data from DeviceHub
          break;
        }  
     }
