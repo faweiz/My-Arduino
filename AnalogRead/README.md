@@ -9,7 +9,7 @@
   
   4. A Processing example sketch to automatically send the messages is included in the folder 
  
- Designer: Fawei Zhang 
+ Designer: Tony Zhang 
 
     https://github.com/faweiz
 
