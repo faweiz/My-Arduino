@@ -8,7 +8,8 @@
   3. Find Current Timestamp at: http://www.currenttimestamp.com/ 
   
   4. A Processing example sketch to automatically send the messages is included in the folder 
-  Designer: Fawei Zhang 
+ 
+ Designer: Fawei Zhang 
     https://github.com/faweiz
 
     https://portfolium.com/faweiz
