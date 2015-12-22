@@ -35,27 +35,26 @@ void loop() {
   if (timeStatus()!= timeNotSet) {
     digitalClockDisplay();  
     // print out the value you read:
-    Serial.println("First sensor Value: ");Serial.println(sensorValue_one); // First sensor value
-  }
-  if (timeStatus()!= timeNotSet) {
-    digitalClockDisplay();  
-    // print out the value you read:
-    Serial.println("Second sensor Value: ");Serial.println(sensorValue_two); // Second sensor value
+    Serial.print(sensorValue_one); // First sensor value
+    Serial.print(" ");
+    Serial.print(sensorValue_two); // Second sensor value
+    Serial.println();
   }
   delay(1000);        // delay in between reads for stability
 }
 void digitalClockDisplay(){
   // digital clock display of the time
+
+  Serial.print(year()); 
+  Serial.print("/"); 
+  Serial.print(month());
+  Serial.print("/");
+  Serial.print(day());
+  Serial.print(" ");
   Serial.print(hour());
   printDigits(minute());
   printDigits(second());
-  Serial.print(" ");
-  Serial.print(day());
-  Serial.print(" ");
-  Serial.print(month());
-  Serial.print(" ");
-  Serial.print(year()); 
-  Serial.println(); 
+  Serial.print(" "); 
 }
 void printDigits(int digits){
   // utility function for digital clock display: prints preceding colon and leading 0
